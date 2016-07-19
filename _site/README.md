@@ -1,2 +1,0 @@
-# LiuRanchao.github.io
-blog

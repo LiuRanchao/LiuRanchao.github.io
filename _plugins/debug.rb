@@ -5,14 +5,14 @@
 #  {{ site.posts | debug }}
 #
 require 'pp'
-module Jekyll
+module Lrchao
   # Need to overwrite the inspect method here because the original
   # uses < > to encapsulate the psuedo post/page objects in which case
   # the output is taken for HTML tags and hidden from view.
   #
   class Post
     def inspect
-      "#Jekyll:Post @id=#{self.id.inspect}"
+      "#Lrchao:Post @id=#{self.id.inspect}"
     end
   end
   
@@ -22,9 +22,9 @@ module Jekyll
     end
   end
   
-end # Jekyll
+end # Lrchao
   
-module Jekyll
+module Lrchao
   module DebugFilter
     
     def debug(obj, stdout=false)
@@ -33,6 +33,6 @@ module Jekyll
     end
 
   end # DebugFilter
-end # Jekyll
+end # Lrchao
 
-Liquid::Template.register_filter(Jekyll::DebugFilter)
+Liquid::Template.register_filter(Lrchao::DebugFilter)

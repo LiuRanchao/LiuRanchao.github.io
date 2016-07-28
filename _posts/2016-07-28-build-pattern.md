@@ -404,3 +404,5 @@ public class AlertDialog extends Dialog implements DialogInterface {
 - 会产生多余的Builder对象以及Director对象，消耗内存；
 - 对象的构建过程暴露。
 
+转载：    
+[Android设计模式源码解析之Builder模式](https://github.com/simple-android-framework-exchange/android_design_patterns_analysis/tree/master/builder/mr.simple)

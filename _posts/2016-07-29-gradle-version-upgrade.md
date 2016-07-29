@@ -1,0 +1,33 @@
+---
+layout: post
+title: Gradle-自动递增版本号
+tags:
+- Gradle
+categories: 构建
+description: 每次Gradle编译，自动递增版本号
+---
+
+#代码
+
+app/gradle.build
+
+```
+// 版本号自增
+task('increaseVersionCode') << {
+    def buildFile = file("build.gradle")
+    def pattern = Pattern.compile("versionCode\\s+(\\d+)")
+    def manifestText = buildFile.getText()
+    def matcher = pattern.matcher(manifestText)
+    matcher.find()
+    def versionCode = Integer.parseInt(matcher.group(1))
+    def manifestContent = matcher.replaceAll("versionCode " + ++versionCode)
+    buildFile.write(manifestContent)
+}
+
+// 版本号自增
+tasks.whenTaskAdded { task ->
+    if (task.name.matches('assemble.*?Release')) {
+        task.dependsOn 'increaseVersionCode'
+    }
+}
+```

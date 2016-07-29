@@ -1,8 +1,8 @@
 ---
 layout: post
 title: android UI适配
-tags:适配
-- 
+tags:
+- 适配
 categories: Android
 description: android的UI适配
 ---

@@ -3,7 +3,7 @@ layout: post
 title: Robolectric
 tags:
 - Robolectric
-categories: 测试
+categories: Android
 description: 基于JavaProject，跳过了模拟器，直接运行在JVM 
 ---
 

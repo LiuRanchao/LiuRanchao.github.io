@@ -7,6 +7,11 @@ categories: 生活
 description: 《测试驱动开发的3项修炼：走出TDD丛林》
 ---
 
+
+### Movable Type ###
+
+
+
 # 一，做到 #
 
 1. 在写产品代码之前，先写它的单元测试 

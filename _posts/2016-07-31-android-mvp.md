@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  Android-MVP
+title: android-MVP
 tags:
 - MVP
 categories: Android
 android mvp模式相关
 ---
+
 
 #文章
 

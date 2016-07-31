@@ -4,7 +4,7 @@ title: Android-MVP
 tags:
 - MVP
 categories: Android
-android mvp模式相关
+description: android mvp模式相关
 ---
 
 

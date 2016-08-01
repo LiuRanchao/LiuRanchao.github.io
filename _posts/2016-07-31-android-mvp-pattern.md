@@ -8,11 +8,11 @@ description: android mvp模式相关
 ---
 
 
-#文章
+# 文章
 
 [http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html]()
 
-#示例
+# 示例
 
 [http://antonioleiva.com/mvp-android/]()
 

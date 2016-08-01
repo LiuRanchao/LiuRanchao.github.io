@@ -7,7 +7,7 @@ categories: Android
 description: 基于JavaProject，跳过了模拟器，直接运行在JVM 
 ---
 
-#注意点：
+# 注意点
 
 1. Android Webview漏洞
 2. 错误使用HTTPS
@@ -18,5 +18,5 @@ description: 基于JavaProject，跳过了模拟器，直接运行在JVM
 7. 参数校验不严，例如intent
 
 
-#参考
+# 参考
 [http://developer.android.com/intl/zh-cn/training/articles/security-tips.html]()

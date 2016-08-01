@@ -7,11 +7,11 @@ categories: Android
 description: 使用Gradle集成代码检查，PMD,FindBugs,CheckStyle,Lint
 ---
 
-#PMD
+# PMD
 
 __quality.gradle文件__
 
-```
+~~~ gradle
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
@@ -46,7 +46,7 @@ task pmd(type: Pmd) {
         }
     }
 }
-```
+~~~
 
 __pmd-ruleset.xml文件__
 

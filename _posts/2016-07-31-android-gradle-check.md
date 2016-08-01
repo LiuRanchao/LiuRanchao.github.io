@@ -50,7 +50,7 @@ task pmd(type: Pmd) {
 
 __pmd-ruleset.xml文件__
 
-```
+~~~ xml
 <?xml version="1.0"?>
 <!--
   ~ Copyright 2015 Vincent Brison.
@@ -122,13 +122,13 @@ __pmd-ruleset.xml文件__
     </rule>
 
 </ruleset>
-```
+~~~
 
-#FindBugs
+# FindBugs
 
 __findbugs-filter.xml__
 
-```
+~~~ xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright 2015 Vincent Brison.
@@ -179,11 +179,11 @@ __findbugs-filter.xml__
     </Match>
 
 </FindBugsFilter>
-```
+~~~
 
 __quality.gradle文件__
 
-```
+~~~ gradle
 /**
  * findBugs
  */
@@ -214,13 +214,13 @@ task findbugs(type: FindBugs, dependsOn: assembleDebug) {
 
     classpath = files()
 }
-```
+~~~
 
-#CheckStyle
+# CheckStyle
 
 __quality.gradle文件__
 
-```
+~~~ gradle
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 
@@ -242,11 +242,11 @@ task checkstyle(type: Checkstyle) {
             "main/java/com/jia/zxpt/user/ui/fragment/decorate_security/DecorateSecurityFragment.java"
     classpath = files()
 }
-```
+~~~
 
 __checkstyle.xml文件__
 
-```
+~~~ xml
 <?xml version="1.0"?>
 <!DOCTYPE module PUBLIC
     "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
@@ -748,13 +748,13 @@ __checkstyle.xml文件__
     </module>
 
 </module>
-```
+~~~
 
-#Lint
+# Lint
 
 __guality.gradle__
 
-```
+~~~ gradle
 apply plugin: 'checkstyle'
 
 // Add checkstyle, findbugs, pmd and lint to the check task.
@@ -770,11 +770,11 @@ android {
         xmlOutput file("$project.buildDir/reports/lint/lint-result.xml")
     }
 }
-```
+~~~
 
 __lint.xml文件__
 
-```
+~~~ xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright 2015 Vincent Brison.
@@ -813,9 +813,9 @@ __lint.xml文件__
     ...
     ...
 </lint>
-```
+~~~ 
 
-#参考
+# 参考
 [PMD规则](http://pmd.sourceforge.net/pmd-4.3.0/rules/)  
 [http://findbugs.sourceforge.net/bugDescriptions.html]()   
 [http://findbugs.sourceforge.net/manual/filter.html]()   

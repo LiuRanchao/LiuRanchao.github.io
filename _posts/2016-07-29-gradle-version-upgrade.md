@@ -7,11 +7,11 @@ categories: 构建
 description: 每次Gradle编译，自动递增版本号
 ---
 
-#代码
+# 代码
 
 app/gradle.build
 
-```
+~~~ gradle
 // 版本号自增
 task('increaseVersionCode') << {
     def buildFile = file("build.gradle")
@@ -30,4 +30,4 @@ tasks.whenTaskAdded { task ->
         task.dependsOn 'increaseVersionCode'
     }
 }
-```
+~~~

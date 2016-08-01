@@ -8,7 +8,9 @@ description: android的UI适配
 ---
 
 # android-UI适配
+
 ## 一，使用不同的value文件夹
+
 ### 方案1：
 > DisplayMetrics metrics = getResources().getDisplayMetrics(); 
 Though Android doesn’t use a direct pixel mapping, it uses a handful of quantized Density Independent Pixel values then scales to the actual screen size. So the metrics.densityDpi property will be one of the DENSITY_??? constants (120, 160, 213, 240, 320, 480 or 640 dpi).

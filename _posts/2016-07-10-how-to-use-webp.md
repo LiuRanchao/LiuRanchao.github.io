@@ -31,10 +31,10 @@ $ sudo make install
 
 4.  等待自动下载后，配置环境变量。    
 
-    ~~~ java
-    export PATH=$PATH:/opt/local/bin   
-    export PATH=$PATH:/opt/local/sbin/	
-    ~~~
+~~~ java
+export PATH=$PATH:/opt/local/bin   
+export PATH=$PATH:/opt/local/sbin/	
+~~~
     
 这样MacPorts就安装好了～～
 
@@ -44,12 +44,12 @@ tar xvzf libwebp-0.5.0.tar.gz
 2.   Build WebP encoder cwebp and decoder dwebp:
 Go to the directory where libwebp-0.5.0/ was extracted to and run the following commands 
 
-    ~~~ java
-    cd libwebp-0.5.0
-    ./configure
-    make
-    sudo make install
-    ~~~
+~~~ java
+cd libwebp-0.5.0
+./configure
+make
+sudo make install
+~~~
     
 OK。这样就可以使用webp啦～
 
@@ -58,14 +58,15 @@ OK。这样就可以使用webp啦～
 
 1.   png to WebP
 
-	~~~ java
-    cwebp -q 80 image.png -o image.webp1
-	~~~ 
+~~~ java
+cwebp -q 80 image.png -o image.webp1
+~~~ 
+
 2.   webp to png   
 
-	~~~ java
-	dwebp image.webp -o image.png
-	~~~
+~~~ java
+dwebp image.webp -o image.png
+~~~
 
 
 # 参考

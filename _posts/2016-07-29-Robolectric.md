@@ -28,7 +28,7 @@ Guide:
 
 # 二，常用API
 
-~~~ android
+~~~ java
 LoginActivity loginActivity = Robolectric.buildActivity(LoginActivity.class).create().get();
 ~~~
 

@@ -7,13 +7,13 @@ categories: Tools
 description: WebP（发音weppy），是一种同时提供了有损压缩与无损压缩的图片文件格式，派生自视频编码格式VP8，是由Google在购买On2 Technologies后发展出来，以BSD授权条款发布。 WebP最初在2010年发布，目标是减少文件大小，但达到和JPEG格式相同的图片质量，希望能够减少图片档在网络上的发送时间。 2011年11月8日，Google开始让WebP支持无损压缩和透明色的功能，而在2012年8月16日的参考实做libwebp 0.2.0中正式支持。根据Google较早的测试，WebP的无损压缩比网络上找到的PNG档少了45％的文件大小，即使这些PNG档在使用pngcrush和PNGOUT处理过，WebP还是可以减少28％的文件大小。
 ---
 
-# 安装 #
+# 安装
 1.  下载最新的[webp lib](https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.html)下载并解压
 2.  在安装web lib前还需要安装准备工具
 Windows 需要Visual C++
 Mac 需要 MacPorts   
 
-## 只以Mac为例 ##
+## 只以Mac为例 
 
 ## 安装使用MacPorts   
 安装MacPorts需要xcode，这里就先不讲这个了，假设已经安装了xcode   
@@ -22,18 +22,20 @@ Mac 需要 MacPorts
 2. 下载[MacPorts源文件](https://distfiles.macports.org/MacPorts/MacPorts-2.3.3.tar.bz2)   
 3. 解压下载好好的文件，在控制台输入如下命令    
 
-    ```
+~~~ java
 $ cd MacPorts-2.3.3/
 $ ./configure
 $ make
 $ sudo make install     
-    ```
+~~~
+
 4.  等待自动下载后，配置环境变量。    
 
-    ```
+    ~~~ java
     export PATH=$PATH:/opt/local/bin   
     export PATH=$PATH:/opt/local/sbin/	
-    ```
+    ~~~
+    
 这样MacPorts就安装好了～～
 
 ## 构建WebpLib
@@ -42,12 +44,13 @@ tar xvzf libwebp-0.5.0.tar.gz
 2.   Build WebP encoder cwebp and decoder dwebp:
 Go to the directory where libwebp-0.5.0/ was extracted to and run the following commands 
 
-    ```
+    ~~~ java
     cd libwebp-0.5.0
     ./configure
     make
     sudo make install
-    ```
+    ~~~
+    
 OK。这样就可以使用webp啦～
 
 # 使用
@@ -55,14 +58,14 @@ OK。这样就可以使用webp啦～
 
 1.   png to WebP
 
-	```
+	~~~ java
     cwebp -q 80 image.png -o image.webp1
-	``` 
+	~~~ 
 2.   webp to png   
 
-	```
+	~~~ java
 	dwebp image.webp -o image.png
-	```
+	~~~
 
 
 # 参考

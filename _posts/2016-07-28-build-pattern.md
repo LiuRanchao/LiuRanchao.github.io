@@ -7,29 +7,30 @@ categories: 架构
 description: 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。。
 ---
 
-#设计模式-建造者模式
-##1.模式介绍
-###模式的定义
+# 设计模式-建造者模式
+## 1.模式介绍
+### 模式的定义
 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
-###模式的使用场景
+### 模式的使用场景
 1. 相同的方法，不同的执行顺序，产生不同的事件结果时；
 2. 多个部件或零件，都可以装配到一个对象中，但是产生的运行结果又不相同时；
 3. 产品类非常复杂，或者产品类中的调用顺序不同产生了不同的效能，这个时候使用建造者模式非常合适；
 
-##2. UML类图
+## 2. UML类图
 ![](http://my.csdn.net/uploads/201203/25/1332654150_2478.jpg)
-###角色介绍
+### 角色介绍
 - Product 产品类 : 产品的抽象类。
 - Builder : 抽象类， 规范产品的组建，一般是由子类实现具体的组件过程。
 - ConcreteBuilder : 具体的构建器.
 - Director : 统一组装过程(可省略)。
 
-##3. 模式的简单实现
-###简单实现的介绍
+## 3. 模式的简单实现
+### 简单实现的介绍
 电脑的组装过程较为复杂，步骤繁多，但是顺序却是不固定的。下面我们以组装电脑为例来演示一下简单且经典的builder模式。
 
-###实现源码
-```java
+### 实现源码
+
+~~~ java
 package com.dp.example.builder;
 
 /**
@@ -189,13 +190,14 @@ public class Test {
         System.out.println("Computer Info : " + builder.create().toString());
     }
 }
-```
+~~~
+
 通过Builder来构建产品对象, 而Director封装了构建复杂产品对象对象的过程，不对外隐藏构建细节。
 
-##Android源码中的模式实现
+## Android源码中的模式实现
 在Android源码中，我们最常用到的Builder模式就是AlertDialog.Builder， 使用该Builder来构建复杂的AlertDialog对象。简单示例如下 :
 
-```java
+~~~ java
 //显示基本的AlertDialog  
     private void showDialog(Context context) {  
         AlertDialog.Builder builder = new AlertDialog.Builder(context);  
@@ -222,13 +224,13 @@ public class Test {
                 });  
         builder.create().show();  // 构建AlertDialog， 并且显示
     } 
-```
+~~~
 
 结果 :![](https://github.com/simple-android-framework-exchange/android_design_patterns_analysis/raw/master/builder/mr.simple/images/result.png)
 
 下面我们看看AlertDialog的相关源码 :
 
-```java
+~~~ java
 // AlertDialog
 public class AlertDialog extends Dialog implements DialogInterface {
     // Controller, 接受Builder成员变量P中的各个参数
@@ -335,11 +337,11 @@ public class AlertDialog extends Dialog implements DialogInterface {
     }
 
 }
-```
+~~~
 
 可以看到，通过Builder来设置AlertDialog中的title, message, button等参数， 这些参数都存储在类型为AlertController.AlertParams的成员变量P中，AlertController.AlertParams中包含了与之对应的成员变量。在调用Builder类的create函数时才创建AlertDialog, 并且将Builder成员变量P中保存的参数应用到AlertDialog的mAlert对象中，即P.apply(dialog.mAlert)代码段。我们看看apply函数的实现 :
 
-```
+~~~ java
  public void apply(AlertController dialog) {
             if (mCustomTitleView != null) {
                 dialog.setCustomTitle(mCustomTitleView);
@@ -389,18 +391,18 @@ public class AlertDialog extends Dialog implements DialogInterface {
                 }
             }
         }
-```
+~~~
 
 实际上就是把P中的参数挨个的设置到AlertController中， 也就是AlertDialog中的mAlert对象。从AlertDialog的各个setter方法中我们也可以看到，实际上也都是调用了mAlert对应的setter方法。在这里，Builder同时扮演了上文中提到的builder、ConcreteBuilder、Director的角色，简化了Builder模式的设计。
 
-##4. 杂谈
-###优点与缺点
-####优点
+## 4. 杂谈
+### 优点与缺点
+#### 优点
 - 良好的封装性， 使用建造者模式可以使客户端不必知道产品内部组成的细节；
 - 建造者独立，容易扩展；
 - 在对象创建过程中会使用到系统中的一些其它对象，这些对象在产品对象的创建过程中不易得到。
 
-####缺点
+#### 缺点
 - 会产生多余的Builder对象以及Director对象，消耗内存；
 - 对象的构建过程暴露。
 

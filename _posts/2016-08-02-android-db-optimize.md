@@ -27,7 +27,7 @@ description: android-数据库优化
 
 1. 提高速度
 2. 保持一致性 
-  - 方式1 :    
+  __方式1__ :     
     SQLiteDatabase
   
 	~~~ java
@@ -50,7 +50,7 @@ description: android-数据库优化
 	    }
 	~~~
 	
-   - 方式2：    
+   __方式2__    
    SQLiteDatabase db.insert(“table_name”, null, contentValues) 中也可以批量插入
    
    ~~~ java
@@ -68,7 +68,7 @@ description: android-数据库优化
     }
    ~~~
    
-   - 方式3   
+   __方式3__     
 	SQLiteStatement 个人比较喜欢用这种方式，对数据的处理看的很清楚明了
 	
 	~~~ java

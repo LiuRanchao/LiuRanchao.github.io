@@ -2,7 +2,7 @@
 layout: post
 title: git版本控制与工作流
 tags:
-- git
+- Git
 categories: Tools
 description: git版本控制与工作流
 ---

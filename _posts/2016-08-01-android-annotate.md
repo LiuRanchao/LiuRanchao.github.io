@@ -22,6 +22,8 @@ description: android-注解
 @RequiresPermission ：需要权限的声明    
 @CallSuper ：需要调用super    
 @VisibleForTesting ：声明变量为测试所用   
+@CheckResult：必须检查方法的返回值
+@Retention(RetentionPolicy.SOURCE)  枚举
 
 
 

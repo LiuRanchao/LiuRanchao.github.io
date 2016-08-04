@@ -117,7 +117,7 @@ com.example.AnotherProcess
 
 # 4. 例子：工厂模式
 
-现在可以举一个实际的例子了。我们使用```maven``` 工具来作为我们的编译系统和依赖管理工具。我会把例子的代码放到 ```github```上。
+现在可以举一个实际的例子了。我们使用```maven``` 工具来作为我们的编译系统和依赖管理工具。我会把例子的代码放到 [```github```](https://github.com/sockeqwe/annotationprocessing101/tree/master/factory)上。
 首先，我必须要说的是，想要找到一个可以使用注解处理器去解决的简单问题来当作教程，并不是一件容易的事。这篇教程中，我们将实现一个非常简单的工厂模式（不是抽象工厂模式）。它只是为了给你简明的介绍注解处理器的API而已。所以这个问题的程序，并不是那么有用，也不是一个真实开发中的例子。再次声明，你能学到的只是注解处理器的相关内容，而不是设计模式。
 
 我们要解决的问题是：我们要实现一个 pizza 店，这个 pizza 店提供给顾客两种 pizza （Margherita 和 Calzone），还有甜点 Tiramisu（提拉米苏）。
@@ -823,7 +823,7 @@ private boolean isValidClass(FactoryAnnotatedClass item) {
 
 如果以上这些条件全都满足，则```isValidClass()```返回 ```true```，否则，它打印一个错误信息然后返回 ```false```。
 
-# 11. 组合被注解的类
+# 12. 组合被注解的类
 
 一旦我们检查```isValidClass()```成功，我们就继续添加```FactoryAnnotatedClass```到相应的```FactoryGroupedClasses```中，如下所示：
 
@@ -871,7 +871,7 @@ public boolean process(Set<? extends TypeElement> annotations,
 	...
 ~~~
 
-# 12. 代码生成
+# 13. 代码生成
 
 我们已经收集了所有被```@Factory```注解的类的信息，这些信息以```FactoryAnnotatedClass```的形式保存在```FactoryGroupedClass```中。现在我们可以为每一个工厂生成 java 文件了：
 
@@ -983,7 +983,7 @@ public class FactoryGroupedClasses {
 }
 ~~~
 
-# 13. 处理循环
+# 14. 处理循环
 
 注解处理器可能会有多次处理过程。官方文档解释如下：
 
@@ -1022,11 +1022,11 @@ public boolean process(Set<? extends TypeElement> annotations,
 
 我知道还可以用其他方法来解决这个问题。比如，我们可以设置一个 boolean 标志等等。关键点在于：我们要记住，注解处理器会经过多轮循环处理（每一轮都是通过调用```process()```方法），我们不能覆盖我们已经生成的代码文件。
 
-# 14. 分离处理器和注解
+# 15. 分离处理器和注解
 
 如果你有看我们```github```上的工厂处理器代码。你就会发现，我们组织代码到两个模块中。我们之所以那样做，是因为我们想让我们工厂例子的使用者在他们在工程中只编译注解，包含处理器模块只是为了编译。这样做的原因是，在发布程序时注解及生成的代码会被打包到用户程序中，而注解处理器则不会（注解处理器对用户的程序运行是没有用的）。假如注解处理器中使用到了其他第三方库，那就会占用系统资源。如果你是一个 android 开发者，你可能会听说过 65K 方法限制（一个android 的 .dex 文件，最多只可以有 65K 个方法）。如果你在注解处理器中使用了 ```Guava```，并且把注解和处理器打包在一个包中，这样的话，Android APK安装包中不只是包含```FactoryProcessor```的代码，而也包含了整个```Guava```的代码。```Guava```有大约20000个方法。所以分开注解和处理器是非常有意义的。
 
-# 15. 实例化生成的类
+# 16. 实例化生成的类
 
 你已经看到了，在这个```PizzaStore```的例子中，生成了```MealFactory```类，它和其他手写的 java 类没有任何区别。你需要手动实例化它（跟其他 java 对象一样）:
 
@@ -1045,7 +1045,7 @@ public class PizzaStore {
 
 当然，你也可以使用反射的方法来实例化。这篇文章的主题是注解处理器，所以就不作过多的讨论了。
 
-# 16. 总结
+# 17. 总结
 
 我希望，你现在对注解处理器已经有比较深的印象了。我必须要再次强调的是：注解处理器是一个非常强大的工具，它可以帮助减少很多无聊代码的编写。我也想提醒的是，跟我的简单工厂例子比起来，注解处理器可以做更多复杂的工作。例如，泛型的类型擦除，因为注解处理器是发生在类型擦除（type erasure）之前的。就像你所看到的，你在写注解处理的时候，有两个普遍的问题你必须要处理：1. 如果你想要在其他类中使用 ElementUtils, TypeUtils 和 Messager，你必须把它们作为参数传给它们。2. 你必须做查询Elements的操作。就像之前提到的，处理Element就和解析XML或者HTML一样。对于HTML你可以是用jQuery，如果在注解处理器中，有类似于jQuery的库那真是非常方便的。
 
@@ -1060,3 +1060,5 @@ public class PizzaStore {
 - [http://hannesdorfmann.com/annotation-processing/annotationprocessing101/]()
 - [http://brianattwell.com/android-annotation-processing-pojo-string-generator/]()
 - [http://yeungeek.com/2016/04/27/Android%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%E4%BA%8C-Annotation-Processing-Tool/]()
+- [Google Auto Servuce](https://github.com/google/auto/tree/master/service)
+- [JavaPoet](https://github.com/square/javapoet)

@@ -21,6 +21,11 @@ description: Android开源
 
 生成.java文件
 
+### [EventBus](https://github.com/greenrobot/EventBus)
+
+> Android optimized event bus that simplifies communication between Activities, Fragments, Threads, Services, etc. Less code, better quality
+
+
 # 项目
 
 ### [v2ex](https://github.com/taoliuh/v2ex)

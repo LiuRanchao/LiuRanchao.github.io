@@ -3,7 +3,7 @@ layout: post
 title: 设计模式-建造者模式
 tags:
 - 设计模式
-categories: 架构
+categories: 软件工程
 description: 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。。
 ---
 

@@ -22,7 +22,33 @@ description: Genymotion使用
 
 so done~ (此过程都要在墙外操作)
 	
+# 二、Genymotion 使用 Fiddler抓包
+
+### windows
+
+In your virtual device  
+
+1. Go to Android settings menu
+2. In Wireless & Networks section, select Wi-Fi
+3. Press and hold for 2 seconds WiredSSID network in the list
+4. Choose Modify Network
+5. Check Show advanced options
+6. Select Manual for Proxy settings menu entry
+7. Enter the proxy address: the Fiddler-running PC's **IPAddress** and Port **8888**
+Press the Save button
+
+### In Fiddler
+
+1. Click Tools menu > Fiddler Options > Connections
+2. Tick the **Allow Remote Computers to connect** box
+3. Restart Fiddler.
+
+同时浏览器要设置
+
+![](http://ww4.sinaimg.cn/mw690/5ecfffbagw1f73f00a639j20by0dzgmp.jpg)
 
 # 参考
-[http://inthecheesefactory.com/blog/how-to-install-google-services-on-genymotion/en]()
+
+- [http://inthecheesefactory.com/blog/how-to-install-google-services-on-genymotion/en]()
+- [http://stackoverflow.com/questions/21554235/how-to-setup-fiddler-and-genymotion]()
 

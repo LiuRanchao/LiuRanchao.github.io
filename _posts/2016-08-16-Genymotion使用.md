@@ -7,7 +7,7 @@ categories: Tools
 description: Genymotion使用
 ---
 
-# 一、Genymotion安装google play
+# 一、安装google play
 
 步骤如下：
 
@@ -22,7 +22,7 @@ description: Genymotion使用
 
 so done~ (此过程都要在墙外操作)
 	
-# 二、Genymotion 使用 Fiddler抓包
+# 二、使用 Fiddler抓包
 
 ### windows
 
@@ -47,8 +47,17 @@ Press the Save button
 
 ![](http://ww4.sinaimg.cn/mw690/5ecfffbagw1f73f00a639j20by0dzgmp.jpg)
 
+# 三、SDCard中添加文件
+
+1. 在Oracle VM VirtualBox在对应的模拟器右键打开设置
+2. 共享文件夹
+3. 添加文件夹
+4. 自动挂载
+5. 在模拟器中打开mnt/shared/新建的共享文件名
+
 # 参考
 
 - [http://inthecheesefactory.com/blog/how-to-install-google-services-on-genymotion/en]()
 - [http://stackoverflow.com/questions/21554235/how-to-setup-fiddler-and-genymotion]()
+- [https://plus.google.com/+GenymotionEmulator/posts/d2ogLdU1rZw]()
 

@@ -58,7 +58,9 @@ Try catch | Ctrl + Alt + T | Cmd + Alt + T
 
 # 三、其它用法
 
-- 加入调试条件 ，断点右键
-- Find Actions(ctrl+shift+a)输入”analyze stacktrace”即可查看堆栈信息。
-- Find Actions(ctrl+shift+a)输入”Analyze Data Flow to 
-Here”，可以查看某个变量某个参数其值是如何一路赋值过来的。 对于分析代码非常有用。
+#### 1.加入调试条件 ，断点右键
+
+#### 2.Find Actions(ctrl+shift+a)输入”analyze stacktrace”即可查看堆栈信息。
+
+#### 3.Find Actions(ctrl+shift+a)输入”Analyze Data Flow to Here”，可以查看某个变量某个参数其值是如何一路赋值过来的。 对于分析代码非常有用。
+

@@ -9,18 +9,6 @@ description: Android文档－Training Best Practices for Interaction and Engagem
 
 ## 一，Designing Effective Navigation
 
-### 1，Planning Screens and Their Relationships
-
-![](https://developer.android.com/images/training/app-navigation-screen-planning-erd.png)
-
-### 2，Planning for Multiple Touchscreen Sizes
-
-### 3，Providing Descendant and Lateral Navigation
-
-### 4，Providing Ancestral and Temporal Navigation
-
-### 5，Putting it All Together: Wireframing the Example App
-
 ## 二，Implementing Effective Navigation
 
 ### 1，Creating Swipe Views with Tabs
@@ -258,3 +246,86 @@ getSupportFragmentManager().beginTransaction()
 [FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET](https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
 
 ## 三，Notifying the User
+
+#### 导航处理
+
+一，常规的Activity   
+进入应用的工作流,需要回退栈
+
+1. 定义manifest
+
+~~~ xml
+<activity
+    android:name=".MainActivity"
+    android:label="@string/app_name" >
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+<activity
+    android:name=".ResultActivity"
+    android:parentActivityName=".MainActivity">
+    <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".MainActivity"/>
+</activity>
+~~~
+
+2. 设置Intent
+
+~~~ java
+int id = 1;
+...
+Intent resultIntent = new Intent(this, ResultActivity.class);
+TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+// Adds the back stack
+stackBuilder.addParentStack(ResultActivity.class);
+// Adds the Intent to the top of the stack
+stackBuilder.addNextIntent(resultIntent);
+// Gets a PendingIntent containing the entire back stack
+PendingIntent resultPendingIntent =
+        stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+...
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+builder.setContentIntent(resultPendingIntent);
+NotificationManager mNotificationManager =
+    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+mNotificationManager.notify(id, builder.build());
+~~~
+
+一，特别的Activity     
+不需要回退栈
+
+1. 在```<activity>```
+
+~~~ xml
+<activity
+    android:name=".ResultActivity"
+...
+    android:launchMode="singleTask"
+    android:taskAffinity=""
+    android:excludeFromRecents="true">
+</activity>
+~~~
+
+2. 设置Intent
+
+~~~ java
+// Instantiate a Builder object.
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+// Creates an Intent for the Activity
+Intent notifyIntent =
+        new Intent(new ComponentName(this, ResultActivity.class));
+// Sets the Activity to start in a new, empty task
+notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+        Intent.FLAG_ACTIVITY_CLEAR_TASK);
+// Creates the PendingIntent
+PendingIntent pendingIntent =
+        PendingIntent.getActivity(
+        this,
+        0,
+        notifyIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT
+);
+~~~

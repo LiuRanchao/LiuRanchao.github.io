@@ -46,9 +46,9 @@ compile 'com.android.support:design:22.2.1'
 
 CoordinatorLayout作为“super-powered FrameLayout”，设置子视图的android:layout_gravity属性控制位置。
 
-**Activity:**
+Activity:
 
-~~~ android
+~~~ java
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -145,14 +145,14 @@ public class MainActivity extends AppCompatActivity {
 
 为了ToolBar可以滚动，CoordinatorLayout里面,放一个带有可滚动的View.如上的例子,放的是ViewPager,而ViewPager里面是放了RecylerView的,即是可以滚动的View。CoordinatorLayout包含的子视图中带有滚动属性的View需要设置app:layout_behavior属性。例如，示例中Viewpager设置了此属性。
 
-~~~ xml
+~~~ 
 app:layout_behavior="@string/appbar_scrolling_view_behavior"
 ~~~
 
 为了使得Toolbar有滑动效果，必须做到如下三点: 
 
-1. CoordinatorLayout作为布局的父布局容器。 
-2. 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性。 
+1. CoordinatorLayout作为布局的父布局容器。
+2. 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性。
 3. 给滑动的组件设置app:layout_behavior属性
 
 #### 3.2 AppBarLayout嵌套CollapsingToolbarLayout
@@ -369,7 +369,6 @@ public class RotateBehavior  extends CoordinatorLayout.Behavior<FloatingActionBu
 ### 参考
 
 [http://blog.csdn.net/xyz_lmn/article/details/48055919]()
-
 
 
 

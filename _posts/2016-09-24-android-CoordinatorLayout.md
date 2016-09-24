@@ -152,7 +152,7 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior"
 为了使得Toolbar有滑动效果，必须做到如下三点: 
 
 1. CoordinatorLayout作为布局的父布局容器
-2. 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性
+2. 给需要滑动的组件设置```app:layout_scrollFlags=”scroll|enterAlways”```属性
 3. 给滑动的组件设置app:layout_behavior属性
 
 #### 3.2 AppBarLayout嵌套CollapsingToolbarLayout

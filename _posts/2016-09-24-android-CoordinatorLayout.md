@@ -145,14 +145,12 @@ public class MainActivity extends AppCompatActivity {
 
 为了ToolBar可以滚动，CoordinatorLayout里面,放一个带有可滚动的View.如上的例子,放的是ViewPager,而ViewPager里面是放了RecylerView的,即是可以滚动的View。CoordinatorLayout包含的子视图中带有滚动属性的View需要设置app:layout_behavior属性。例如，示例中Viewpager设置了此属性。
 
-~~~ 
-app:layout_behavior="@string/appbar_scrolling_view_behavior"
-~~~
+```app:layout_behavior="@string/appbar_scrolling_view_behavior"```
 
 为了使得Toolbar有滑动效果，必须做到如下三点: 
 
-1. CoordinatorLayout作为布局的父布局容器。
-2. 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性。
+1. CoordinatorLayout作为布局的父布局容器
+2. 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性
 3. 给滑动的组件设置app:layout_behavior属性
 
 #### 3.2 AppBarLayout嵌套CollapsingToolbarLayout
@@ -275,10 +273,10 @@ CoordinatorLayout 还提供了一个 layout_anchor 的属性，连同 layout_anc
 
 通过下面的参数设置了FloatingActionButton的位置，两个属性共同作用使得FAB 浮动按钮也能折叠消失，展现。
 
-~~~ xml
+```
 app:layout_anchor="@id/appbar"
 app:layout_anchorGravity="bottom|right|end"
-~~~
+```
 
 使用CollapsingToolbarLayout实现折叠效果，需要注意3点 
 

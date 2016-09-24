@@ -275,16 +275,16 @@ CoordinatorLayout 还提供了一个 layout_anchor 的属性，连同 layout_anc
 
 通过下面的参数设置了FloatingActionButton的位置，两个属性共同作用使得FAB 浮动按钮也能折叠消失，展现。
 
-```
+~~~ java
 app:layout_anchor="@id/appbar"
 app:layout_anchorGravity="bottom|right|end"
-```
+~~~
 
 使用CollapsingToolbarLayout实现折叠效果，需要注意3点 
 
 1. AppBarLayout的高度固定 
-2. CollapsingToolbarLayout的子视图设置layout_collapseMode属性 
-3. 关联悬浮视图设置app:layout_anchor，app:layout_anchorGravity属性
+2. CollapsingToolbarLayout的子视图设置```layout_collapseMode```属性 
+3. 关联悬浮视图设置```app:layout_anchor```，```app:layout_anchorGravity```属性
 
 ### 四、自定义behavior
 

@@ -145,7 +145,9 @@ public class MainActivity extends AppCompatActivity {
 
 为了ToolBar可以滚动，CoordinatorLayout里面,放一个带有可滚动的View.如上的例子,放的是ViewPager,而ViewPager里面是放了RecylerView的,即是可以滚动的View。CoordinatorLayout包含的子视图中带有滚动属性的View需要设置app:layout_behavior属性。例如，示例中Viewpager设置了此属性。
 
-``app:layout_behavior="@string/appbar_scrolling_view_behavior"``
+~~~ java
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+~~~
 
 为了使得Toolbar有滑动效果，必须做到如下三点: 
 

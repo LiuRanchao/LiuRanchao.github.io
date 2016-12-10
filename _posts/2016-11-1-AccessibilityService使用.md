@@ -30,7 +30,7 @@ public void onInterrupt() {
 }
 ~~~
 
-~~~
+~~~ java
 /**
  * 用来绑定服务的方法，可以做一些关于AccessibilityServiceInfo 的初始配置
  */
@@ -114,8 +114,56 @@ public void onAccessibilityEvent(AccessibilityEvent event) {
 }
 ~~~
 
+### 文档说明
+
+####AccessibilityServiceInfo属性
+
+- android:accessibilityEventTypes  接收事件类型AccessibilityEvent
+
+ - TYPE_VIEW_CLICKED：被点击事件。Button、CompoundButton
+ - TYPE_VIEW_LONG_CLICKED：被长按事件Button。CompoundButton
+ - TYPE_VIEW_SELECTED：被选中的事件。AdapterView
+ - TYPE_VIEW_FOCUSED：获得焦点事件。
+ - TYPE_VIEW_TEXT_CHANGED：输入内容改变事件。EditText
+ - TYPE_VIEW_TEXT_SELECTION_CHANGED ：输入的索引改变事件。EditText
+ - TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY：text在view里移动事件
+ - TYPE_VIEW_SCROLLED：滑动事件。
+ - TYPE_WINDOW_STATE_CHANGED：Window变化事件。例如打开PopupWindow、Menu、Dialog。etc.
+ - TYPE_WINDOW_CONTENT_CHANGED：Window的内容变化。adding/removeing view, changing a view size, etc.
+ - TYPE_WINDOWS_CHANGED：Window显示在屏幕上的变化。例如window显示，window消失，window大小变化，window图层变化等
+ - TYPE_NOTIFICATION_STATE_CHANGED：显示通知事件。
+ - TYPE_VIEW_HOVER_ENTER：悬停在view上的进入事件。
+ - TYPE_VIEW_HOVER_EXIT:悬停在view上的离开事件。
+ - TYPE_TOUCH_INTERACTION_START:用户开始点击屏幕事件。
+ - TYPE_TOUCH_INTERACTION_END:用户结束点击屏幕事件。
+ - 。。。
+ 
+- android:accessibilityFeedbackType：表示设置反馈给用户的方式，常见的有语音播报，手机振动等
+- android:accessibilityFlags：标示
+
+ - flagDefault： 默认的
+ - flagIncludeNotImportantViews：标志包括不重要的view
+ - flagRequestTouchExplorationMode：标志请求触摸探测模式
+ - flagRequestEnhancedWebAccessibility：标记请求增强的Web可访问性
+ - flagReportViewIds：报告视图ID标志
+ - flagRequestFilterKeyEvents：标记要求过滤的关键事件
+ - flagRetrieveInteractiveWindows：标记检索交互窗口
+ 
+- android:canRequestEnhancedWebAccessibility：是否增强WebView的服务
+- android:canRequestFilterKeyEvents：
+- android:canRequestTouchExplorationMode：是否需要触摸模式
+- android:canRetrieveWindowContent：表示是否可以获取当前窗口内容，true表示可以获取否则不可以获取
+- android:description：表示对当前辅助功能的描述，该值会在Android设置的辅助列表中显示
+- android:notificationTimeout： 表示两个相同的时间发送的时间间隔
+- android:packageNames：表示当前辅助服务需要监听的应用包名，用逗号分隔。
+- android:settingsActivity：允许用户修改此服务的设置的活动的组件名称。
+
+
+
 ### 参考
 
 - [微信抢红包](http://www.jianshu.com/p/4cd8c109cdfb)
+- [Accessibility 实现抢红包(一)](http://blog.csdn.net/yun1185448859/article/details/51959207)
+- [Android自动化测试中AccessibilityService获取控件信息（1）](http://blog.csdn.net/itfootball/article/details/21953763)
 
 

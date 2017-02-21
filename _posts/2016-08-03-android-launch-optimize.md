@@ -20,3 +20,8 @@ description: android启动优化
 ~~~
 
 转载：[http://www.jianshu.com/p/09b115dcb909]()
+
+[http://www.zhihu.com/question/35487841](http://www.zhihu.com/question/35487841)
+
+[http://greenrobot.me/devnews/facebook-engineer-improve-android-app/](http://greenrobot.me/devnews/facebook-engineer-improve-android-app/)
+

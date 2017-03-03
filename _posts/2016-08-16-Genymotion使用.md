@@ -60,4 +60,5 @@ Press the Save button
 - [http://inthecheesefactory.com/blog/how-to-install-google-services-on-genymotion/en]()
 - [http://stackoverflow.com/questions/21554235/how-to-setup-fiddler-and-genymotion]()
 - [https://plus.google.com/+GenymotionEmulator/posts/d2ogLdU1rZw]()
+- [Genymotion安装配置指南](http://www.snowdream.tech/2016/10/17/android-genymotion-install-and-settings/)
 

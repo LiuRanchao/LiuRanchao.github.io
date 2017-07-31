@@ -199,6 +199,20 @@ transient是Java语言的关键字，用来表示一个域不是该对象串行�
 
 在java中，类的static块会在类被加载的时候执行且仅会被执行一次。但是有一个问题需要说明，那就是java的类加载机制是在jvm启动的时候java的核心类(rt.jar中全部类)会被全部载入，而用户定义的类仅在被使用的时候才被加载或者由我们主动加载(使用Class.forName(String className)方法)。
 
+#### 25. 解释泛型？
+
+#### 26.StringBuffer与StringBuilder的区别?
+
+StringBuffer 字符串变量（线程安全）   
+StringBuilder 字符串变量（非线程安全）
+
+#### 27.迭代与枚举
+
+#### 28.priority queue
+
+#### 29.设计模式
+
+
 ### 二，Android相关
 
 #### 1.内存泄漏的场景
@@ -213,14 +227,32 @@ transient是Java语言的关键字，用来表示一个域不是该对象串行�
  	- Bitmap没调用recycle()
  	- 构造Adapter时，没有使用缓存的 convertView
 
+#### 2.Activity的生命周期
 
+#### 3.Android程序的所有组件
 
+#### 4.Service vs IntentService
 
+#### 5.Parcelable和Serializable的区别
 
+Parcelable的性能比Serializable好，在内存开销方面较小，所以在内存间数据传输时推荐使用Parcelable，如activity间传输数据，而Serializable可将数据持久化方便保存，所以在需要保存或网络传输数据时选择Serializable，因为android不同版本Parcelable可能不同，所以不推荐使用Parcelable进行数据持久化
+
+#### 6.四种launchMode
+
+ - standard   
+ 	不管有没有已存在的实例，都生成新的实例
+ - singleTop   
+ 	如果发现有对应的Activity实例正位于栈顶，则重复利用，不再生成新的实例
+ - singleTask   
+	如果发现有对应的Activity实例，则使此Activity实例之上的其他Activity实例统统出栈，	使此Activity实例成为栈顶对象，显示到幕前。
+ - singleInstance
+   singleInstance 新建一个Task，且在该Task中只有它的唯一一个实例。 (只有一个Task会有，且该Task中只有它)。“singleInstance”是其所在栈的唯一activity，它会每次都被重用。
 
  
 
 
+## 参考
 
-https://github.com/MindorksOpenSource/android-interview-questions
+- [https://github.com/MindorksOpenSource/android-interview-questions]()
+
 

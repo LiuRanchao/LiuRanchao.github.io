@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Android-Proguard
+title: Proguard
+date:2016/09/24
 tags:
 - 代码混淆
 categories: Android
@@ -9,20 +10,36 @@ description: Android-Proguard
 
 ### 一. 不可以混淆的地方
 
-1. 登录界面
+1. 界面
 2. WebView界面
 3. 引用第三方jar包
 4. 序列化对象
 5. 调用js
 6. JNI反调java方法
+
+	~~~java
+	-keepclasseswithmembernames class * { native <methods>; }
+	~~~
 7. 反射
 8. 定义在AndroidManifest.xml的class
 9. 动态引用的方法和字段
+10. model
+
+	~~~java
+	-keep class io.plaidapp.data.api.dribbble.model.** { *; }
+	~~~
+	
+11. 从 JAR/APK 打开资源
 
 ### 二. 用法
 
 ##### Keep Options:
 
+**- keep**
+指定需要保留的类和类成员（作为公共类库，应该保留所有可公开访问的public方法）
+
+
+- 
 1.不混淆package下所有的类和接口:
 
 ~~~ gradle
@@ -184,6 +201,16 @@ Umeng sdk混淆配置:
 -keep public class * extends com.umeng.**
 -keep class com.umeng.** {*; }
 ```
+### 问题
+
+1
+
+~~~java
+Note: the configuration keeps the entry point 'retrofit2.adapter.rxjava2.ResultObservable$ResultObserver { ResultObservable$ResultObserver(io.reactivex.Observer); }' but not the descriptor class 'io.reactivex.Observer'
+~~~
+ResultObserver 方法的参数 Observer 找不到
+
+
 
 ### 参考
 

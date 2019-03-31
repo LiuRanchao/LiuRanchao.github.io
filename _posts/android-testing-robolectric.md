@@ -68,6 +68,14 @@ assertFalse()
 
 [https://github.com/robolectric/robolectric/wiki/2.4-to-3.0-Upgrade-Guide]()
 
+# 七，测试点
+ - activity跳转
+ - toast显示内容
+
+
 ~~~ gradle
 testCompile ‘org.robolectric:robolectric:3.0’
 ~~~
+
+# 参考
+ - 

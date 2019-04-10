@@ -46,8 +46,8 @@ description: 《Android组件化架构》
     	googleplayImplementation project(":xx")
 	}
  ~~~
- 
-  - 如果使用MutlitDex，在Application的attachBaseContext函数中，在super()之后添加MultiDex.install来启动多dex配置，可以减少"class not found"的情况出现
+  
+ - 如果使用MutlitDex，在Application的attachBaseContext函数中，在super()之后添加MultiDex.install来启动多dex配置，可以减少"class not found"的情况出现
 
 
  
